@@ -13,6 +13,7 @@ namespace MyCustomValidation.Extensions
             var member = expression.Body as MemberExpression;
             var propInfo = member.Member as PropertyInfo;
             var value = (TProperty)propInfo.GetValue(obj, null);
+            Console.WriteLine(value);
             return value;
         }
     }

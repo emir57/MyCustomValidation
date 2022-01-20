@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyCustomValidation.Extensions;
+using MyCustomValidation.Models;
+using System;
 
 namespace MyCustomValidation
 {
@@ -6,7 +8,14 @@ namespace MyCustomValidation
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Product product = new Product
+            {
+                ProductName = "Phone",
+                CategoryId = 1,
+                Stock = 2,
+                UnitPrice = 4999
+            };
+            product.GetProp(p => p.CategoryId);
         }
     }
 }
