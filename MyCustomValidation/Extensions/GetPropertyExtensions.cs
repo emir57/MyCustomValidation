@@ -8,7 +8,7 @@ namespace MyCustomValidation.Extensions
 {
     public static class GetPropertyExtensions
     {
-        public static TProperty GetProp<TMethod,TProperty>(this TMethod obj,Expression<Func<TMethod,TProperty>> expression)
+        public static TProperty GetProp<TObject,TProperty>(this TObject obj,Expression<Func<TObject, TProperty>> expression)
         {
             var member = expression.Body as MemberExpression;
             var propInfo = member.Member as PropertyInfo;
