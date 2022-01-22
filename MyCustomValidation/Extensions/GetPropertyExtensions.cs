@@ -9,6 +9,14 @@ namespace MyCustomValidation.Extensions
 {
     public static class GetPropertyExtensions
     {
+        /// <summary>
+        /// Select object field
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <typeparam name="TProperty"></typeparam>
+        /// <param name="obj">Anything Object</param>
+        /// <param name="expression">LinQ Expression</param>
+        /// <returns></returns>
         public static TransferObject<TObject> GetProp<TObject,TProperty>(this TObject obj,Expression<Func<TObject, TProperty>> expression)
         {
             var member = expression.Body as MemberExpression;
