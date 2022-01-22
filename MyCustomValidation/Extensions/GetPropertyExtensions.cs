@@ -21,13 +21,12 @@ namespace MyCustomValidation.Extensions
         {
             var member = expression.Body as MemberExpression;
             var propInfo = member.Member as PropertyInfo;
-            var value = (TProperty)propInfo.GetValue(obj, null);
-            Console.WriteLine(expression.Body);
-            return new TransferObject<TObject>
+            var transferObject = new TransferObject<TObject>
             {
                 Object = obj,
-                PropertyInfo=propInfo
+                PropertyInfo = propInfo
             };
+            return transferObject;
         }
     }
 }
