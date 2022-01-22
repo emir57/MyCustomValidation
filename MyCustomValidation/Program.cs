@@ -11,11 +11,11 @@ namespace MyCustomValidation
             Product product = new Product
             {
                 ProductName = "Phone",
-                CategoryId = 2,
+                CategoryId = 5,
                 Stock = 2,
                 UnitPrice = 4999
             };
-            product.GetProp(p => p.CategoryId).MinValue(3);
+            product.GetProp(p => p.CategoryId).MaxValue(3);
         }
     }
 }

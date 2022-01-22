@@ -13,9 +13,19 @@ namespace MyCustomValidation.Extensions
         public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,Int64 minimumValue)
         {
             var value = transferObject.GetValue();
+            var objectName = transferObject.PropertyInfo.Name;
             if (Convert.ToInt64(value) < minimumValue)
             {
-                throw new ValidateException($"{transferObject.PropertyInfo.Name} is minimum could be {minimumValue}");
+                throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
+            }
+        }
+        public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,Int64 maximumValue)
+        {
+            var value = transferObject.GetValue();
+            var objectName = transferObject.PropertyInfo.Name;
+            if (Convert.ToInt64(value) > maximumValue)
+            {
+                throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
             }
         }
     }
