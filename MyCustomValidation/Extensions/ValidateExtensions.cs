@@ -10,6 +10,12 @@ namespace MyCustomValidation.Extensions
 {
     public static class ValidateExtensions
     {
+        /// <summary>
+        /// is field minimum
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="transferObject">GetProp return value</param>
+        /// <param name="minimumValue">minimum value</param>
         public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,Int64 minimumValue)
         {
             var value = transferObject.GetValue();
@@ -19,6 +25,12 @@ namespace MyCustomValidation.Extensions
                 throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
             }
         }
+        /// <summary>
+        /// is field maximum
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="transferObject">GetProp return value</param>
+        /// <param name="maximumValue">maximum value</param>
         public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,Int64 maximumValue)
         {
             var value = transferObject.GetValue();
