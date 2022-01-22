@@ -1,4 +1,5 @@
 ﻿using MyCustomValidation.ExceptionClasses;
+using MyCustomValidation.Helpers.ObjectHelper;
 using MyCustomValidation.Models;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ namespace MyCustomValidation.Extensions
     {
         public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,Int64 minimumValue)
         {
-            var value = transferObject.PropertyInfo.GetValue(transferObject.Object, null);
+            var value = transferObject.GetValue();
             if (Convert.ToInt64(value) < minimumValue)
             {
                 throw new ValidateException($"{transferObject.PropertyInfo.Name} is minimum could be {minimumValue}");
