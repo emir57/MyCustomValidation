@@ -44,6 +44,19 @@ namespace MyCustomValidation.Extensions
         {
             object value; string objectName;
             GetProps(transferObject, out value, out objectName);
+            if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
+            {
+                throw new ValidateException($"{objectName} is more than {moreThanValue}");
+            }
+        }
+        public static void MoreThanOrEqualTo<TObject>(this TransferObject<TObject> transferObject,object moreThanOrEqualTo)
+        {
+            object value;string objectName;
+            GetProps(transferObject, out value, out objectName);
+            if(Convert.ToInt64(moreThanOrEqualTo) > Convert.ToInt64(value))
+            {
+                throw new ValidateException($"{objectName} is more than or equal to {moreThanOrEqualTo}");
+            }
         }
 
         private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
