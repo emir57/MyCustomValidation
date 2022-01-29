@@ -40,5 +40,16 @@ namespace MyCustomValidation.Extensions
                 throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
             }
         }
+        public static void MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
+        {
+            var value = transferObject.GetValue();
+            var objectName = transferObject.PropertyInfo.Name;
+        }
+
+        private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
+        {
+            value = transferObject.GetValue();
+            objectName = transferObject.PropertyInfo.Name;
+        }
     }
 }
