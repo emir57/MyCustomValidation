@@ -18,8 +18,8 @@ namespace MyCustomValidation.Extensions
         /// <param name="minimumValue">minimum value</param>
         public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,object minimumValue)
         {
-            var value = transferObject.GetValue();
-            var objectName = transferObject.PropertyInfo.Name;
+            object value;string objectName;
+            GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
                 throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
@@ -33,8 +33,8 @@ namespace MyCustomValidation.Extensions
         /// <param name="maximumValue">maximum value</param>
         public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,object maximumValue)
         {
-            var value = transferObject.GetValue();
-            var objectName = transferObject.PropertyInfo.Name;
+            object value; string objectName;
+            GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
             {
                 throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
@@ -42,8 +42,8 @@ namespace MyCustomValidation.Extensions
         }
         public static void MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
         {
-            var value = transferObject.GetValue();
-            var objectName = transferObject.PropertyInfo.Name;
+            object value; string objectName;
+            GetProps(transferObject, out value, out objectName);
         }
 
         private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
