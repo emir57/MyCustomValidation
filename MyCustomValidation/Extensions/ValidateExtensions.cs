@@ -40,6 +40,12 @@ namespace MyCustomValidation.Extensions
                 throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
             }
         }
+        /// <summary>
+        /// more than
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="transferObject">GetProp return value</param>
+        /// <param name="moreThanValue">more than value</param>
         public static void MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
         {
             object value; string objectName;
@@ -49,6 +55,12 @@ namespace MyCustomValidation.Extensions
                 throw new ValidateException($"{objectName} is more than {moreThanValue}");
             }
         }
+        /// <summary>
+        /// more than or equal to
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="transferObject">GetProp return value</param>
+        /// <param name="moreThanOrEqualTo">more than or equal to</param>
         public static void MoreThanOrEqualTo<TObject>(this TransferObject<TObject> transferObject,object moreThanOrEqualTo)
         {
             object value;string objectName;
