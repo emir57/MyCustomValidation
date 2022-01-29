@@ -16,11 +16,11 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="minimumValue">minimum value</param>
-        public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,Int64 minimumValue)
+        public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,object minimumValue)
         {
             var value = transferObject.GetValue();
             var objectName = transferObject.PropertyInfo.Name;
-            if (Convert.ToInt64(value) < minimumValue)
+            if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
                 throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
             }
@@ -31,11 +31,11 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="maximumValue">maximum value</param>
-        public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,Int64 maximumValue)
+        public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,object maximumValue)
         {
             var value = transferObject.GetValue();
             var objectName = transferObject.PropertyInfo.Name;
-            if (Convert.ToInt64(value) > maximumValue)
+            if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
             {
                 throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
             }
