@@ -13,7 +13,7 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="maximumValue">maximum value</param>
-        public static void MaxValue<TObject>(this TransferObject<TObject> transferObject, object maximumValue)
+        public static TransferObject<TObject> MaxValue<TObject>(this TransferObject<TObject> transferObject, object maximumValue)
         {
             object value; string objectName;
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
@@ -22,6 +22,7 @@ namespace MyCustomValidation.Extensions
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
                 { Message = $"{objectName} is maximum could be {maximumValue}" });
             }
+            return transferObject;
         }
     }
 }

@@ -5,22 +5,22 @@ using System.Text;
 
 namespace MyCustomValidation.Extensions
 {
-    public static class MinValueExtension
+    public static class MoreThanExtension
     {
         /// <summary>
-        /// is field minimum
+        /// more than
         /// </summary>
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
-        /// <param name="minimumValue">minimum value</param>
-        public static void MinValue<TObject>(this TransferObject<TObject> transferObject, object minimumValue)
+        /// <param name="moreThanValue">more than value</param>
+        public static TransferObject<TObject> MoreThan<TObject>(this TransferObject<TObject> transferObject, object moreThanValue)
         {
             object value; string objectName;
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
-            if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
+            if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
             {
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = $"{objectName} is minimum could be {minimumValue}" });
+                { Message = $"{objectName} is more than {moreThanValue}" });
             }
             return transferObject;
         }
