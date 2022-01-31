@@ -22,13 +22,16 @@ namespace MyCustomValidation
             {
                 Product product = new Product
                 {
-                    ProductName = "Phone",
-                    CategoryId = 1,
+                    ProductName = "Fhone",
+                    CategoryId = 4,
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                //ProductValidator productValidator = new ProductValidator(product);
-                var c = new ValidationContext<object>(product, typeof(ProductValidator));
+                var result = new ValidationContext(product, typeof(ProductValidator));
+                if (result.IsError)
+                {
+
+                }
                 
 
             }

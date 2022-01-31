@@ -1,4 +1,5 @@
 ﻿using MyCustomValidation.ExceptionClasses;
+using MyCustomValidation.Extensions;
 using MyCustomValidation.Models;
 using System;
 using System.Collections.Generic;
@@ -7,18 +8,23 @@ using System.Text;
 
 namespace MyCustomValidation.Validation
 {
-    public class ValidationContext<TObject>
-        where TObject:class,new()
+    public class ValidationContext
     {
-
-        //MyCustomValidator<TObject> _myCustomValidator;
-        public TObject Entity { get; private set; }
-        public ValidationContext(TObject obj,Type myCustomValidator)
+        public ValidationContext(object obj, Type myCustomValidator)
         {
-            var entityType
-            //myCustomValidator.GetConstructors()[0].GetParameters().SetValue(obj,0);
-            var validator = (MyCustomValidator<TObject>)Activator.CreateInstance(myCustomValidator,obj);
-            
+            var validator = Activator.CreateInstance(myCustomValidator, obj);
+            foreach (var error in ValidateExtensions.ValidationResults)
+            {
+                Console.WriteLine(error.Message);
+            }
         }
+        private bool isError = ValidateExtensions.ValidationResults.Count > 1 ? true : false;
+
+        public bool IsError
+        {
+            get { return isError; }
+            set { isError = value; }
+        }
+
     }
 }
