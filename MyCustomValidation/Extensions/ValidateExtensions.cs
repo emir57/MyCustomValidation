@@ -72,7 +72,16 @@ namespace MyCustomValidation.Extensions
             }
             return transferObject;
         }
-
+        public static TransferObject<TObject> StartsWith<TObject>(this TransferObject<TObject> transferObject,string startsWith)
+        {
+            object value;string objectName;
+            GetProps(transferObject, out value, out objectName);
+            if (!value.ToString().StartsWith(startsWith))
+            {
+                throw new ValidateException($"{objectName} is start with {startsWith}");
+            }
+            return transferObject;
+        }
         private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
         {
             value = transferObject.GetValue();
