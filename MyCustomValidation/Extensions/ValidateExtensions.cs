@@ -10,10 +10,10 @@ namespace MyCustomValidation.Extensions
 {
     public static class ValidateExtensions
     {
-        public static ValidationResult ValidationResult { get; private set; }
+        public static List<ValidationResult> ValidationResults;
         static ValidateExtensions()
         {
-            ValidationResult = new ValidationResult();
+            ValidationResults = new List<ValidationResult>();
         }
         /// <summary>
         /// is field minimum
@@ -27,7 +27,9 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
-                ValidationResult.ValidateExceptions.Add(new ValidateException($"{objectName} is minimum could be {minimumValue}"));
+                ValidationResults.Add(new ValidationResult { Message = $"{objectName} is minimum could be {minimumValue}" });
+
+                //ValidationResult.ValidateExceptions.Add(new ValidateException($"{objectName} is minimum could be {minimumValue}"));
                 //throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
             }
         }
@@ -43,7 +45,9 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
             {
-                throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
+                ValidationResults.Add(new ValidationResult { Message = $"{objectName} is maximum could be {maximumValue}" });
+
+                //throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
             }
         }
         /// <summary>

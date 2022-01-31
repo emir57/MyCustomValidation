@@ -18,8 +18,8 @@ namespace MyCustomValidation.Validation
             Entity = (TObject)obj;
             var baseType = myCustomValidator.BaseType;
             var entity = baseType.GetGenericArguments()[0];
-            var _obj = myCustomValidator.GetMember("_obj");
-            _obj.SetValue(obj, 0);
+            var _obj = myCustomValidator.GetMember("_obj")[0] as FieldInfo;
+            _obj.SetValue(myCustomValidator,obj);
             MyCustomValidator<TObject> validator = (MyCustomValidator<TObject>)Activator.CreateInstance(myCustomValidator);
 
         }

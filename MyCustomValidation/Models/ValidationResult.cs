@@ -7,6 +7,6 @@ namespace MyCustomValidation.Models
 {
     public class ValidationResult
     {
-        public List<ValidateException> ValidateExceptions { get; set; }
+        public string Message { get; set; }
     }
 }
