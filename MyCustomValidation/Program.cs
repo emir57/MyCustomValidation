@@ -9,7 +9,7 @@ namespace MyCustomValidation
     {
         public ProductValidator()
         {
-            GetProp(p => p.ProductName).StartsWith("S");
+            GetProp(p => p.ProductName).StartsWith("F");
         }
     }
     class Program
@@ -25,8 +25,9 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                ProductValidator productValidator = new ProductValidator();
-                
+                //ProductValidator validator = new ProductValidator();
+                var context = new ValidationContext<object>(product,typeof(ProductValidator));
+
             }
             catch (Exception e)
             {

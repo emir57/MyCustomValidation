@@ -7,10 +7,18 @@ using System.Text;
 
 namespace MyCustomValidation.Validation
 {
-    public abstract class MyCustomValidator<TObject>
+    public abstract class MyCustomValidator<TObject>:IValidator
         where TObject:class,new()
     {
-        private TObject _obj = new TObject();
+        private TObject _obj;
+        public MyCustomValidator(TObject obj):this()
+        {
+            _obj = obj;
+        }
+        public MyCustomValidator()
+        {
+
+        }
         protected TransferObject<TObject> GetProp<TProperty>(Expression<Func<TObject, TProperty>> expression)
         {
             var member = expression.Body as MemberExpression;
