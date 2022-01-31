@@ -22,7 +22,7 @@ namespace MyCustomValidation
             {
                 Product product = new Product
                 {
-                    ProductName = "Fhone",
+                    ProductName = "Phone",
                     CategoryId = 4,
                     Stock = 2,
                     UnitPrice = 4999
@@ -30,7 +30,10 @@ namespace MyCustomValidation
                 var result = new ValidationContext(product, typeof(ProductValidator));
                 if (result.IsError)
                 {
-
+                    foreach (var error in result.Errors)
+                    {
+                        Console.WriteLine(error.Message);
+                    }
                 }
                 
 

@@ -18,12 +18,18 @@ namespace MyCustomValidation.Validation
                 Console.WriteLine(error.Message);
             }
         }
+        private List<ValidationResult> errors;
+
+        public List<ValidationResult> Errors
+        {
+            get { return errors; }
+        }
+
         private bool isError = ValidateExtensions.ValidationResults.Count > 1 ? true : false;
 
         public bool IsError
         {
             get { return isError; }
-            set { isError = value; }
         }
 
     }
