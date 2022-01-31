@@ -72,6 +72,13 @@ namespace MyCustomValidation.Extensions
             }
             return transferObject;
         }
+        /// <summary>
+        /// field is starts with
+        /// </summary>
+        /// <typeparam name="TObject"></typeparam>
+        /// <param name="transferObject"></param>
+        /// <param name="startsWith">startwith parameter</param>
+        /// <returns></returns>
         public static TransferObject<TObject> StartsWith<TObject>(this TransferObject<TObject> transferObject,string startsWith)
         {
             object value;string objectName;
