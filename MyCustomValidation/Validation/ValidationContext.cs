@@ -14,7 +14,7 @@ namespace MyCustomValidation.Validation
         public bool IsError { get; }
         public ValidationContext(object obj, Type myCustomValidator)
         {
-            var validator = Activator.CreateInstance(myCustomValidator, obj);
+            Activator.CreateInstance(myCustomValidator, obj);
             Errors = ValidateExtensions.ValidationResults;
             IsError = Errors.Count == 0 ? false : true;
             ValidateExtensions.ValidationResults = new List<ValidationResult>();
