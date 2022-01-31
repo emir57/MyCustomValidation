@@ -13,15 +13,12 @@ namespace MyCustomValidation.Validation
 
         //MyCustomValidator<TObject> _myCustomValidator;
         public TObject Entity { get; private set; }
-        public ValidationContext(object obj,Type myCustomValidator)
+        public ValidationContext(TObject obj,Type myCustomValidator)
         {
-            Entity = (TObject)obj;
-            var baseType = myCustomValidator.BaseType;
-            var entity = baseType.GetGenericArguments()[0];
-            var _obj = myCustomValidator.GetMember("_obj")[0] as FieldInfo;
-            _obj.SetValue(myCustomValidator,obj);
-            MyCustomValidator<TObject> validator = (MyCustomValidator<TObject>)Activator.CreateInstance(myCustomValidator);
-
+            var entityType
+            //myCustomValidator.GetConstructors()[0].GetParameters().SetValue(obj,0);
+            var validator = (MyCustomValidator<TObject>)Activator.CreateInstance(myCustomValidator,obj);
+            
         }
     }
 }

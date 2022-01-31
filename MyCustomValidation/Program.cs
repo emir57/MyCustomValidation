@@ -27,11 +27,9 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                ProductValidator productValidator = new ProductValidator(product);
-                foreach (var error in ValidateExtensions.ValidationResults)
-                {
-                    Console.WriteLine(error.Message);
-                }
+                //ProductValidator productValidator = new ProductValidator(product);
+                var c = new ValidationContext<object>(product, typeof(ProductValidator));
+                
 
             }
             catch (Exception e)
