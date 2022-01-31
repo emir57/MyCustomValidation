@@ -25,8 +25,7 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                //ProductValidator validator = new ProductValidator();
-                var context = new ValidationContext<object>(product,typeof(ProductValidator));
+                new ValidationContext<object>(product,typeof(ProductValidator));
 
             }
             catch (Exception e)
