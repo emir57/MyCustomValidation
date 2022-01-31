@@ -13,10 +13,8 @@ namespace MyCustomValidation.Validation
         public ValidationContext(object obj, Type myCustomValidator)
         {
             var validator = Activator.CreateInstance(myCustomValidator, obj);
-            foreach (var error in ValidateExtensions.ValidationResults)
-            {
-                Console.WriteLine(error.Message);
-            }
+            errors = ValidateExtensions.ValidationResults;
+            isError = errors.Count == 0 ? false : true;
         }
         private List<ValidationResult> errors;
 
@@ -25,7 +23,7 @@ namespace MyCustomValidation.Validation
             get { return errors; }
         }
 
-        private bool isError = ValidateExtensions.ValidationResults.Count > 1 ? true : false;
+        private bool isError;
 
         public bool IsError
         {
