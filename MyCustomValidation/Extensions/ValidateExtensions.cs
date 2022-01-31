@@ -15,22 +15,7 @@ namespace MyCustomValidation.Extensions
         {
             ValidationResults = new List<ValidationResult>();
         }
-        /// <summary>
-        /// is field minimum
-        /// </summary>
-        /// <typeparam name="TObject"></typeparam>
-        /// <param name="transferObject">GetProp return value</param>
-        /// <param name="minimumValue">minimum value</param>
-        public static void MinValue<TObject>(this TransferObject<TObject> transferObject ,object minimumValue)
-        {
-            object value;string objectName;
-            GetProps(transferObject, out value, out objectName);
-            if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
-            {
-                ValidationResults.Add(new ValidationResult 
-                    { Message = $"{objectName} is minimum could be {minimumValue}" });
-            }
-        }
+        
         /// <summary>
         /// is field maximum
         /// </summary>
@@ -99,7 +84,7 @@ namespace MyCustomValidation.Extensions
             }
             return transferObject;
         }
-        private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
+        public static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)
         {
             value = transferObject.GetValue();
             objectName = transferObject.PropertyInfo.Name;

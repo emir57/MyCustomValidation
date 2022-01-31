@@ -10,7 +10,7 @@ namespace MyCustomValidation
     {
         public ProductValidator(Product product):base(product)
         {
-            GetProp(p => p.CategoryId).MinValue(2);
+            GetProp(p => p.CategoryId).MinValue(3);
             GetProp(p => p.ProductName).StartsWith("F");
             GetProp(p => p.UnitPrice).MinValue(100);
         }
