@@ -51,8 +51,6 @@ namespace MyCustomValidation
                         Console.WriteLine(error.Message);
                     }
                 }
-
-
             }
             catch (Exception e)
             {
