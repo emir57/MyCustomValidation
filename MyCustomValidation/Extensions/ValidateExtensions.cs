@@ -16,39 +16,8 @@ namespace MyCustomValidation.Extensions
             ValidationResults = new List<ValidationResult>();
         }
         
-        /// <summary>
-        /// is field maximum
-        /// </summary>
-        /// <typeparam name="TObject"></typeparam>
-        /// <param name="transferObject">GetProp return value</param>
-        /// <param name="maximumValue">maximum value</param>
-        public static void MaxValue<TObject>(this TransferObject<TObject> transferObject,object maximumValue)
-        {
-            object value; string objectName;
-            GetProps(transferObject, out value, out objectName);
-            if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
-            {
-                ValidationResults.Add(new ValidationResult 
-                    { Message = $"{objectName} is maximum could be {maximumValue}" });
-            }
-        }
-        /// <summary>
-        /// more than
-        /// </summary>
-        /// <typeparam name="TObject"></typeparam>
-        /// <param name="transferObject">GetProp return value</param>
-        /// <param name="moreThanValue">more than value</param>
-        public static TransferObject<TObject> MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
-        {
-            object value; string objectName;
-            GetProps(transferObject, out value, out objectName);
-            if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
-            {
-                ValidationResults.Add(new ValidationResult
-                    { Message = $"{objectName} is more than {moreThanValue}" });
-            }
-            return transferObject;
-        }
+        
+        
         /// <summary>
         /// more than or equal to
         /// </summary>
