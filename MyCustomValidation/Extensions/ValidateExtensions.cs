@@ -46,7 +46,7 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="moreThanValue">more than value</param>
-        public static void MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
+        public static TransferObject<TObject> MoreThan<TObject>(this TransferObject<TObject> transferObject,object moreThanValue)
         {
             object value; string objectName;
             GetProps(transferObject, out value, out objectName);
@@ -54,6 +54,7 @@ namespace MyCustomValidation.Extensions
             {
                 throw new ValidateException($"{objectName} is more than {moreThanValue}");
             }
+            return transferObject;
         }
         /// <summary>
         /// more than or equal to
@@ -61,7 +62,7 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="moreThanOrEqualTo">more than or equal to</param>
-        public static void MoreThanOrEqualTo<TObject>(this TransferObject<TObject> transferObject,object moreThanOrEqualTo)
+        public static TransferObject<TObject> MoreThanOrEqualTo<TObject>(this TransferObject<TObject> transferObject,object moreThanOrEqualTo)
         {
             object value;string objectName;
             GetProps(transferObject, out value, out objectName);
@@ -69,6 +70,7 @@ namespace MyCustomValidation.Extensions
             {
                 throw new ValidateException($"{objectName} is more than or equal to {moreThanOrEqualTo}");
             }
+            return transferObject;
         }
 
         private static void GetProps<TObject>(TransferObject<TObject> transferObject,out object value,out string objectName)

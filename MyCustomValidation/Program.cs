@@ -15,7 +15,7 @@ namespace MyCustomValidation
                 Stock = 2,
                 UnitPrice = 4999
             };
-            product.GetProp(p => p.CategoryId).MoreThanOrEqualTo(5);
+            product.GetProp(p => p.CategoryId).MoreThan(5);
         }
     }
 }
