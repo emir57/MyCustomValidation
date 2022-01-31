@@ -18,23 +18,7 @@ namespace MyCustomValidation.Extensions
         
         
         
-        /// <summary>
-        /// more than or equal to
-        /// </summary>
-        /// <typeparam name="TObject"></typeparam>
-        /// <param name="transferObject">GetProp return value</param>
-        /// <param name="moreThanOrEqualTo">more than or equal to</param>
-        public static TransferObject<TObject> MoreThanOrEqualTo<TObject>(this TransferObject<TObject> transferObject,object moreThanOrEqualTo)
-        {
-            object value;string objectName;
-            GetProps(transferObject, out value, out objectName);
-            if(Convert.ToInt64(moreThanOrEqualTo) > Convert.ToInt64(value))
-            {
-                ValidationResults.Add(new ValidationResult 
-                    { Message = $"{objectName} is more than or equal to {moreThanOrEqualTo}" });
-            }
-            return transferObject;
-        }
+        
         /// <summary>
         /// field is starts with
         /// </summary>
