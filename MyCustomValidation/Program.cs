@@ -8,14 +8,22 @@ namespace MyCustomValidation
     {
         static void Main(string[] args)
         {
-            Product product = new Product
+            try
             {
-                ProductName = "Phone",
-                CategoryId = 5,
-                Stock = 2,
-                UnitPrice = 4999
-            };
-            product.GetProp(p => p.CategoryId).MoreThan(5);
+                Product product = new Product
+                {
+                    ProductName = "Phone",
+                    CategoryId = 5,
+                    Stock = 2,
+                    UnitPrice = 4999
+                };
+                product.GetProp(p => p.CategoryId).MoreThan(5);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            
         }
     }
 }
