@@ -12,6 +12,7 @@ namespace MyCustomValidation
         {
             GetProp(p => p.CategoryId).MinValue(2);
             GetProp(p => p.ProductName).StartsWith("F");
+            GetProp(p => p.UnitPrice).MinValue(100);
         }
     }
     class Program
@@ -25,9 +26,24 @@ namespace MyCustomValidation
                     ProductName = "Phone",
                     CategoryId = 4,
                     Stock = 2,
+                    UnitPrice = 1
+                };
+                Product product2 = new Product
+                {
+                    ProductName = "Phone",
+                    CategoryId = 1,
+                    Stock = 2,
                     UnitPrice = 4999
                 };
                 var result = new ValidationContext(product, typeof(ProductValidator));
+                var result2 = new ValidationContext(product2, typeof(ProductValidator));
+                if (result2.IsError)
+                {
+                    foreach (var error in result2.Errors)
+                    {
+                        Console.WriteLine(error.Message);
+                    }
+                }
                 if (result.IsError)
                 {
                     foreach (var error in result.Errors)
@@ -35,7 +51,7 @@ namespace MyCustomValidation
                         Console.WriteLine(error.Message);
                     }
                 }
-                
+
 
             }
             catch (Exception e)

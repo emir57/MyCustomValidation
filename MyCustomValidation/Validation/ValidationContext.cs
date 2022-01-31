@@ -15,12 +15,16 @@ namespace MyCustomValidation.Validation
             var validator = Activator.CreateInstance(myCustomValidator, obj);
             errors = ValidateExtensions.ValidationResults;
             isError = errors.Count == 0 ? false : true;
+            ValidateExtensions.ValidationResults = new List<ValidationResult>();
         }
         private List<ValidationResult> errors;
 
         public List<ValidationResult> Errors
         {
-            get { return errors; }
+            get 
+            {
+                return errors; 
+            }
         }
 
         private bool isError;
