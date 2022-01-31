@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System;
+using System.Reflection;
 
 namespace MyCustomValidation.Models
 {
@@ -6,5 +7,10 @@ namespace MyCustomValidation.Models
     {
         public TObject Object { get; set; }
         public PropertyInfo PropertyInfo { get; set; }
+
+        public static implicit operator TransferObject<TObject>(TransferObject<TObject> v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

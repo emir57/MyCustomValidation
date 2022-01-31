@@ -1,9 +1,17 @@
 ﻿using MyCustomValidation.Extensions;
 using MyCustomValidation.Models;
+using MyCustomValidation.Validation;
 using System;
 
 namespace MyCustomValidation
 {
+    class ProductValidator : MyCustomValidator<Product>
+    {
+        public ProductValidator()
+        {
+            GetProp(p => p.ProductName).StartsWith("S");
+        }
+    }
     class Program
     {
         static void Main(string[] args)
@@ -17,8 +25,8 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                product.GetProp(p => p.CategoryId).MoreThan(4);
-                product.GetProp(p => p.ProductName).StartsWith("P");
+                ProductValidator productValidator = new ProductValidator();
+                
             }
             catch (Exception e)
             {
