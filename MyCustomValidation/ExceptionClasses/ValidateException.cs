@@ -6,7 +6,7 @@ namespace MyCustomValidation.ExceptionClasses
 {
     public class ValidateException:Exception
     {
-        public ValidateException(string message):base(message)
+        public ValidateException(string message):base("Validate Exception: "+message)
         {
 
         }
