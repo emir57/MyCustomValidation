@@ -9,7 +9,7 @@ namespace MyCustomValidation
     {
         public ProductValidator()
         {
-            GetProp(p => p.ProductName).StartsWith("F");
+            GetProp(p => p.CategoryId).MinValue(3);
         }
     }
     class Program
@@ -21,11 +21,11 @@ namespace MyCustomValidation
                 Product product = new Product
                 {
                     ProductName = "Phone",
-                    CategoryId = 5,
+                    CategoryId = 1,
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                new ValidationContext<object>(product,typeof(ProductValidator));
+                new ValidationContext<Product>(product,typeof(ProductValidator));
 
             }
             catch (Exception e)

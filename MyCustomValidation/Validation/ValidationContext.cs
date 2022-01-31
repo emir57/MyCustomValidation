@@ -2,6 +2,7 @@
 using MyCustomValidation.Models;
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace MyCustomValidation.Validation
@@ -17,8 +18,10 @@ namespace MyCustomValidation.Validation
             Entity = (TObject)obj;
             var baseType = myCustomValidator.BaseType;
             var entity = baseType.GetGenericArguments()[0];
+            var _obj = myCustomValidator.GetMember("_obj");
+            _obj.SetValue(obj, 0);
             MyCustomValidator<TObject> validator = (MyCustomValidator<TObject>)Activator.CreateInstance(myCustomValidator);
-            validator._validationContext = this;
+
         }
     }
 }

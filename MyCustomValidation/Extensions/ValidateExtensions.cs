@@ -10,6 +10,11 @@ namespace MyCustomValidation.Extensions
 {
     public static class ValidateExtensions
     {
+        public static ValidationResult ValidationResult { get; private set; }
+        static ValidateExtensions()
+        {
+            ValidationResult = new ValidationResult();
+        }
         /// <summary>
         /// is field minimum
         /// </summary>
@@ -22,7 +27,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
-                throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
+                ValidationResult.ValidateExceptions.Add(new ValidateException($"{objectName} is minimum could be {minimumValue}"));
+                //throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
             }
         }
         /// <summary>
