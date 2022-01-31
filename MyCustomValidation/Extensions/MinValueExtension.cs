@@ -13,7 +13,7 @@ namespace MyCustomValidation.Extensions
         /// <typeparam name="TObject"></typeparam>
         /// <param name="transferObject">GetProp return value</param>
         /// <param name="minimumValue">minimum value</param>
-        public static void MinValue<TObject>(this TransferObject<TObject> transferObject, object minimumValue)
+        public static TransferObject<TObject> MinValue<TObject>(this TransferObject<TObject> transferObject, object minimumValue)
         {
             object value; string objectName;
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
