@@ -27,10 +27,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
-                ValidationResults.Add(new ValidationResult { Message = $"{objectName} is minimum could be {minimumValue}" });
-
-                //ValidationResult.ValidateExceptions.Add(new ValidateException($"{objectName} is minimum could be {minimumValue}"));
-                //throw new ValidateException($"{objectName} is minimum could be {minimumValue}");
+                ValidationResults.Add(new ValidationResult 
+                    { Message = $"{objectName} is minimum could be {minimumValue}" });
             }
         }
         /// <summary>
@@ -45,9 +43,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
             {
-                ValidationResults.Add(new ValidationResult { Message = $"{objectName} is maximum could be {maximumValue}" });
-
-                //throw new ValidateException($"{objectName} is maximum could be {maximumValue}");
+                ValidationResults.Add(new ValidationResult 
+                    { Message = $"{objectName} is maximum could be {maximumValue}" });
             }
         }
         /// <summary>
@@ -62,7 +59,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
             {
-                throw new ValidateException($"{objectName} is more than {moreThanValue}");
+                ValidationResults.Add(new ValidationResult
+                    { Message = $"{objectName} is more than {moreThanValue}" });
             }
             return transferObject;
         }
@@ -78,7 +76,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if(Convert.ToInt64(moreThanOrEqualTo) > Convert.ToInt64(value))
             {
-                throw new ValidateException($"{objectName} is more than or equal to {moreThanOrEqualTo}");
+                ValidationResults.Add(new ValidationResult 
+                    { Message = $"{objectName} is more than or equal to {moreThanOrEqualTo}" });
             }
             return transferObject;
         }
@@ -95,7 +94,8 @@ namespace MyCustomValidation.Extensions
             GetProps(transferObject, out value, out objectName);
             if (!value.ToString().StartsWith(startsWith))
             {
-                throw new ValidateException($"{objectName} is start with {startsWith}");
+                ValidationResults.Add(new ValidationResult 
+                    { Message = $"{objectName} is start with {startsWith}" });
             }
             return transferObject;
         }
