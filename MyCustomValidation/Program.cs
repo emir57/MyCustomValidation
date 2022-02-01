@@ -24,20 +24,22 @@ namespace MyCustomValidation
             {
                 Product product = new Product
                 {
-                    ProductName = "Phone",
+                    ProductName = "FPhone",
                     CategoryId = 4,
                     Stock = 2,
                     UnitPrice = 1
                 };
                 Product product2 = new Product
                 {
-                    ProductName = "Phone",
+                    ProductName = "FPhone",
                     CategoryId = 1,
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                var result = new ValidationContext().Validate(product, typeof(ProductValidator));
-                var result2 = new ValidationContext().Validate(product2, typeof(ProductValidator));
+                var context1 = new ValidationContext();
+                var context2 = new ValidationContext();
+                var result = context1.Validate(product, typeof(ProductValidator));
+                var result2 = context2.Validate(product2, typeof(ProductValidator));
                 if (result2.IsError)
                 {
                     foreach (var error in result2.Errors)
