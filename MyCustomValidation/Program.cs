@@ -36,8 +36,8 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                var result = new ValidationContext<Product>(product, typeof(ProductValidator));
-                var result2 = new ValidationContext<Product>(product2, typeof(ProductValidator));
+                var result = new ValidationContext().Validate(product, typeof(ProductValidator));
+                var result2 = new ValidationContext().Validate(product2, typeof(ProductValidator));
                 if (result2.IsError)
                 {
                     foreach (var error in result2.Errors)
