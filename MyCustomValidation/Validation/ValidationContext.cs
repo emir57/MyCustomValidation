@@ -8,13 +8,24 @@ using System.Text;
 
 namespace MyCustomValidation.Validation
 {
-    public class ValidationContext : IValidationContext
+    public class ValidationContext<TObject> : IValidationContext
+        where TObject:class,new()
     {
         public List<ValidationResult> Errors { get; }
         public bool IsError { get; }
-        public ValidationContext(object obj, Type myCustomValidator)
+        public ValidationContext(TObject obj, Type myCustomValidator)
         {
-            Activator.CreateInstance(myCustomValidator, obj);
+            MyCustomValidator<TObject>._obj = obj;
+            /*FieldInfo[] ps = myCustomValidator.GetFields();*/
+            //var p = myCustomValidator.GetField("_obj");
+            //if (p != null)
+            //{
+            //    var c = Activator.CreateInstance(myCustomValidator,obj);
+            //    Type t = Nullable.GetUnderlyingType(p.FieldType) ?? p.FieldType;
+            //    object safeValue = (obj == null) ? null : Convert.ChangeType(obj, t);
+            //    p.SetValue(c, safeValue);
+            //}
+            Activator.CreateInstance(myCustomValidator);
             Errors = ValidateExtensions.ValidationResults;
             IsError = Errors.Count == 0 ? false : true;
             ValidateExtensions.ValidationResults = new List<ValidationResult>();

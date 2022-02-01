@@ -13,11 +13,15 @@ namespace MyCustomValidation.Validation
     public abstract class MyCustomValidator<TObject>:IValidator
         where TObject:class,new()
     {
-        private TObject _obj;
+        public static TObject _obj;
         protected TransferObject<TObject> _transferObject;
-        public MyCustomValidator(TObject @object)
+        //public MyCustomValidator(TObject @object)
+        //{
+        //    _obj = @object;
+        //}
+        public MyCustomValidator()
         {
-            _obj = @object;
+
         }
         protected TransferObject<TObject> GetProp<TProperty>(Expression<Func<TObject, TProperty>> expression)
         {

@@ -9,7 +9,7 @@ namespace MyCustomValidation
 {
     class ProductValidator : MyCustomValidator<Product>
     {
-        public ProductValidator(Product product):base(product)
+        public ProductValidator()
         {
             GetProp(p => p.CategoryId).MinValue(3);
             GetProp(p => p.ProductName).StartsWith("F");
@@ -36,8 +36,8 @@ namespace MyCustomValidation
                     Stock = 2,
                     UnitPrice = 4999
                 };
-                var result = new ValidationContext(product, typeof(ProductValidator));
-                var result2 = new ValidationContext(product2, typeof(ProductValidator));
+                var result = new ValidationContext<Product>(product, typeof(ProductValidator));
+                var result2 = new ValidationContext<Product>(product2, typeof(ProductValidator));
                 if (result2.IsError)
                 {
                     foreach (var error in result2.Errors)
@@ -52,6 +52,7 @@ namespace MyCustomValidation
                         Console.WriteLine(error.Message);
                     }
                 }
+                
             }
             catch (Exception e)
             {
