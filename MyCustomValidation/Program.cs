@@ -24,7 +24,7 @@ namespace MyCustomValidation
             {
                 Product product = new Product
                 {
-                    ProductName = "FPhone",
+                    ProductName = "Phone",
                     CategoryId = 4,
                     Stock = 2,
                     UnitPrice = 1
@@ -32,7 +32,7 @@ namespace MyCustomValidation
                 Product product2 = new Product
                 {
                     ProductName = "FPhone",
-                    CategoryId = 1,
+                    CategoryId = 3,
                     Stock = 2,
                     UnitPrice = 4999
                 };
