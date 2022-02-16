@@ -15,10 +15,6 @@ namespace MyCustomValidation.Validation
     {
         public static TObject _obj;
         protected TransferObject<TObject> _transferObject;
-        //public MyCustomValidator(TObject @object)
-        //{
-        //    _obj = @object;
-        //}
         public MyCustomValidator()
         {
 
