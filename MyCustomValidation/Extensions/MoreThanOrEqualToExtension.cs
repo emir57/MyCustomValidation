@@ -21,7 +21,7 @@ namespace MyCustomValidation.Extensions
             if (Convert.ToInt64(moreThanOrEqualTo) > Convert.ToInt64(value))
             {
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = ValidateSettings.Language.MaxValueMessage(objectName, moreThanOrEqualTo) });
+                { Message = ValidateSettings.Language.MoreThanOrEqualToMessage(objectName, moreThanOrEqualTo) });
             }
             return transferObject;
         }
