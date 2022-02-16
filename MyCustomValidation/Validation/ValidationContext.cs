@@ -33,6 +33,7 @@ namespace MyCustomValidation.Validation
         public IValidationContext Validate<TObject>(TObject obj, Type myCustomValidator)
             where TObject:class,new()
         {
+
             Type s = myCustomValidator.BaseType.GetGenericArguments()[0];
             MyCustomValidator<TObject>._obj = obj;
 
