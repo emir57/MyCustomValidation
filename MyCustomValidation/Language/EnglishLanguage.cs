@@ -8,7 +8,8 @@ namespace MyCustomValidation.Language
     {
         public string MaxValueMessage(string objectName, object maximumValue)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} is maximum could be {maximumValue}";
+            return message;
         }
 
         public string MinValueMessage(string objectName, object minimumValue)
