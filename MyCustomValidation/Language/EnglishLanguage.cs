@@ -14,7 +14,8 @@ namespace MyCustomValidation.Language
 
         public string MinValueMessage(string objectName, object minimumValue)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} is minimum could be {minimumValue}";
+            return message;
         }
 
         public string MoreThanMessage(string objectName, object moreThanValue)
