@@ -33,7 +33,8 @@ namespace MyCustomValidation.Language
 
         public string StartsWithMessage(string objectName, string startsWith)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} alanı '{startsWith}' ile başlamalıdır";
+            return message;
         }
     }
 }
