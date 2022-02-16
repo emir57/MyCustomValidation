@@ -1,4 +1,5 @@
 ﻿using MyCustomValidation.Models;
+using MyCustomValidation.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,7 @@ namespace MyCustomValidation.Extensions
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = $"{objectName} is minimum could be {minimumValue}" });
+                { Message = ValidateSettings.Language.MinValueMessage(objectName, minimumValue) });
             }
             return transferObject;
         }
