@@ -1,4 +1,5 @@
 ﻿using MyCustomValidation.Models;
+using MyCustomValidation.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +22,7 @@ namespace MyCustomValidation.Extensions
             if (!value.ToString().StartsWith(startsWith))
             {
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = $"{objectName} is start with {startsWith}" });
+                { Message = ValidateSettings.Language.StartsWithMessage(objectName, startsWith) });
             }
             return transferObject;
         }
