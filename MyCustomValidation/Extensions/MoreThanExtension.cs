@@ -1,4 +1,5 @@
 ﻿using MyCustomValidation.Models;
+using MyCustomValidation.Validation;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,7 +21,7 @@ namespace MyCustomValidation.Extensions
             if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
             {
                 ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = $"{objectName} is more than {moreThanValue}" });
+                { Message = ValidateSettings.Language.MoreThanMessage(objectName, moreThanValue) });
             }
             return transferObject;
         }
