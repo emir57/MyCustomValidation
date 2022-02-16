@@ -26,7 +26,8 @@ namespace MyCustomValidation.Language
 
         public string MoreThanOrEqualToMessage(string objectName, object moreThanOrEqualTo)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} is more than or equal to {moreThanOrEqualTo}";
+            return message;
         }
 
         public string StartsWithMessage(string objectName, string startsWith)
