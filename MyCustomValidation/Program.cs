@@ -1,6 +1,7 @@
 ﻿
 using MyCustomValidation.ExceptionClasses;
 using MyCustomValidation.Extensions;
+using MyCustomValidation.Language;
 using MyCustomValidation.Models;
 using MyCustomValidation.Validation;
 using System;
@@ -21,6 +22,7 @@ namespace MyCustomValidation
     {
         static void Main(string[] args)
         {
+            ValidateSettings.Language = new TurkishLanguage();
             try
             {
                 Product product1 = new Product
