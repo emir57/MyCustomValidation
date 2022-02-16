@@ -8,13 +8,15 @@ namespace MyCustomValidation.Language
     {
         public string MaxValueMessage(string objectName, object maximumValue)
         {
-            string message = $"{objectName} alanı maksimum {maximumValue} karakter olabilir";
+            string message = $"{objectName} alanı en fazla {maximumValue} değerinde olabilir";
             return message;
         }
 
         public string MinValueMessage(string objectName, object minimumValue)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} alanı en az {minimumValue} değerinde olabilir";
+            return message;
+
         }
 
         public string MoreThanMessage(string objectName, object moreThanValue)
