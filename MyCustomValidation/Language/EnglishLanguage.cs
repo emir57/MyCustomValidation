@@ -32,7 +32,8 @@ namespace MyCustomValidation.Language
 
         public string StartsWithMessage(string objectName, string startsWith)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} is start with {startsWith}";
+            return message;
         }
     }
 }
