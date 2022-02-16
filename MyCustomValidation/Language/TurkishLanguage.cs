@@ -21,7 +21,8 @@ namespace MyCustomValidation.Language
 
         public string MoreThanMessage(string objectName, object moreThanValue)
         {
-            throw new NotImplementedException();
+            string message = $"{objectName} alanı {moreThanValue} değerinden büyük olmalıdır";
+            return message;
         }
 
         public string MoreThanOrEqualToMessage(string objectName, object moreThanOrEqualTo)
