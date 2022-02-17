@@ -15,7 +15,7 @@ namespace MyCustomValidation
         {
             GetProp(p => p.CategoryId).MinValue(3);
             GetProp(p => p.ProductName).StartsWith("F");
-            GetProp(p => p.UnitPrice).MoreThan(100);
+            GetProp(p => p.UnitPrice).MoreThan(100).ErrorMessage("");
         }
     }
     class Program
