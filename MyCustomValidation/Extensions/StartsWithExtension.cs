@@ -21,7 +21,7 @@ namespace MyCustomValidation.Extensions
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
             if (!value.ToString().StartsWith(startsWith))
             {
-                string message = ValidateSettings.Language.MaxValueMessage(objectName, startsWith);
+                string message = ValidateSettings.Language.StartsWithMessage(objectName, startsWith);
                 transferObject.ErrorMessage = message;
             }
             return transferObject;
