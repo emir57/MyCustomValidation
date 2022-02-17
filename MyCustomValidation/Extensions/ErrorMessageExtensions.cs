@@ -10,8 +10,14 @@ namespace MyCustomValidation.Extensions
     {
         public static void ErrorMessage<TObject>(this TransferObject<TObject> transferObject, string errorMessage)
         {
+            transferObject.ErrorMessage = errorMessage;
             ValidateExtensions.ValidationResults.Add(new ValidationResult
-            { Message = errorMessage});
+            { Message = transferObject.ErrorMessage });
+        }
+        public static void ErrorMessage<TObject>(this TransferObject<TObject> transferObject)
+        {
+            ValidateExtensions.ValidationResults.Add(new ValidationResult
+            { Message = transferObject.ErrorMessage });
         }
     }
 }

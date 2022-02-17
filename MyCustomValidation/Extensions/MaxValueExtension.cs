@@ -21,7 +21,7 @@ namespace MyCustomValidation.Extensions
             if (Convert.ToInt64(value) > Convert.ToInt64(maximumValue))
             {
                 string message = ValidateSettings.Language.MaxValueMessage(objectName, maximumValue);
-                transferObject.ErrorMessage(message);
+                transferObject.ErrorMessage = message;
             }
             return transferObject;
         }
