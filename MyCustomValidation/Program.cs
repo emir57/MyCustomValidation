@@ -30,14 +30,14 @@ namespace MyCustomValidation
                     ProductName = "FPhone",
                     CategoryId = 4,
                     Stock = 2,
-                    UnitPrice = 66
+                    UnitPrice = 44
                 };
                 Product product2 = new Product
                 {
                     ProductName = "Phone",
                     CategoryId = 3,
                     Stock = 2,
-                    UnitPrice = 4999
+                    UnitPrice = 44
                 };
                 var products = new List<Product>() { product1, product2 };
                 var context = new ValidationContext();

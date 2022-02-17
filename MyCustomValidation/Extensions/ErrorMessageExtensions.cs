@@ -16,9 +16,12 @@ namespace MyCustomValidation.Extensions
         /// <param name="errorMessage">Custom Error Message</param>
         public static void ErrorMessage<TObject>(this TransferObject<TObject> transferObject, string errorMessage)
         {
-            transferObject.ErrorMessage = errorMessage;
-            ValidateExtensions.ValidationResults.Add(new ValidationResult
-            { Message = transferObject.ErrorMessage });
+            if (transferObject.ErrorMessage != null)
+            {
+                transferObject.ErrorMessage = errorMessage;
+                ValidateExtensions.ValidationResults.Add(new ValidationResult
+                { Message = transferObject.ErrorMessage });
+            }
         }
         /// <summary>
         /// This method is default error message
@@ -27,8 +30,9 @@ namespace MyCustomValidation.Extensions
         /// <param name="transferObject"></param>
         public static void ErrorMessage<TObject>(this TransferObject<TObject> transferObject)
         {
-            ValidateExtensions.ValidationResults.Add(new ValidationResult
-            { Message = transferObject.ErrorMessage });
+            if (transferObject.ErrorMessage != null)
+                ValidateExtensions.ValidationResults.Add(new ValidationResult
+                { Message = transferObject.ErrorMessage });
         }
     }
 }
