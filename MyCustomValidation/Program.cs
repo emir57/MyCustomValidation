@@ -15,7 +15,7 @@ namespace MyCustomValidation
         {
             GetProp(p => p.CategoryId).MinValue(3);
             GetProp(p => p.ProductName).StartsWith("F");
-            GetProp(p => p.UnitPrice).MaxValue(55);
+            GetProp(p => p.UnitPrice).MaxValue(55).ErrorMessage("maksimum değer 55 olabilir");
         }
     }
     class Program
