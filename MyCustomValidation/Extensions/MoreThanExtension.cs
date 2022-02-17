@@ -20,8 +20,8 @@ namespace MyCustomValidation.Extensions
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(moreThanValue) >= Convert.ToInt64(value))
             {
-                ValidateExtensions.ValidationResults.Add(new ValidationResult
-                { Message = ValidateSettings.Language.MoreThanMessage(objectName, moreThanValue) });
+                string message = ValidateSettings.Language.MaxValueMessage(objectName, moreThanValue);
+                transferObject.ErrorMessage = message;
             }
             return transferObject;
         }
