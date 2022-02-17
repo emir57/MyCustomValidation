@@ -20,7 +20,7 @@ namespace MyCustomValidation.Extensions
             ValidateExtensions.GetProps(transferObject, out value, out objectName);
             if (Convert.ToInt64(value) < Convert.ToInt64(minimumValue))
             {
-                string message = ValidateSettings.Language.MaxValueMessage(objectName, minimumValue);
+                string message = ValidateSettings.Language.MinValueMessage(objectName, minimumValue);
                 transferObject.ErrorMessage = message;
             }
             return transferObject;
