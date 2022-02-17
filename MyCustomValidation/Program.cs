@@ -15,7 +15,7 @@ namespace MyCustomValidation
         {
             GetProp(p => p.CategoryId).MinValue(3);
             GetProp(p => p.ProductName).StartsWith("F");
-            GetProp(p => p.UnitPrice).MoreThan(100).ErrorMessage("");
+            GetProp(p => p.UnitPrice).MaxValue(55).ErrorMessage("as");
         }
     }
     class Program
@@ -30,7 +30,7 @@ namespace MyCustomValidation
                     ProductName = "FPhone",
                     CategoryId = 4,
                     Stock = 2,
-                    UnitPrice = 100
+                    UnitPrice = 66
                 };
                 Product product2 = new Product
                 {

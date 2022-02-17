@@ -7,5 +7,6 @@ namespace MyCustomValidation.Models
     {
         public TObject Object { get; set; }
         public PropertyInfo PropertyInfo { get; set; }
+        public string ErrorMessage { get; set; }
     }
 }
