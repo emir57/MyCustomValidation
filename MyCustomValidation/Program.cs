@@ -13,8 +13,8 @@ namespace MyCustomValidation
     {
         public ProductValidator()
         {
-            GetProp(p => p.CategoryId).MinValue(3);
-            GetProp(p => p.ProductName).StartsWith("F");
+            GetProp(p => p.CategoryId).MinValue(3).ErrorMessage();
+            GetProp(p => p.ProductName).StartsWith("F").ErrorMessage();
             GetProp(p => p.UnitPrice).MaxValue(55).ErrorMessage("maksimum değer 55 olabilir");
         }
     }
