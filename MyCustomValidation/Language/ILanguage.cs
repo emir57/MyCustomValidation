@@ -11,5 +11,6 @@ namespace MyCustomValidation.Language
         string MoreThanMessage(string objectName, object moreThanValue);
         string MoreThanOrEqualToMessage(string objectName, object moreThanOrEqualTo);
         string StartsWithMessage(string objectName, string startsWith);
+        string EndsWithMessage(string objectName, string endsWith);
     }
 }

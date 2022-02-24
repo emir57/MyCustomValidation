@@ -6,6 +6,12 @@ namespace MyCustomValidation.Language
 {
     public class EnglishLanguage : ILanguage
     {
+        public string EndsWithMessage(string objectName, string endsWith)
+        {
+            string message = $"{objectName} is end with {endsWith}";
+            return message;
+        }
+
         public string MaxValueMessage(string objectName, object maximumValue)
         {
             string message = $"{objectName} is maximum could be {maximumValue}";

@@ -6,6 +6,12 @@ namespace MyCustomValidation.Language
 {
     public class TurkishLanguage : ILanguage
     {
+        public string EndsWithMessage(string objectName, string endsWith)
+        {
+            string message = $"{objectName} alanı '{endsWith}' ile bitmelidir.";
+            return message;
+        }
+
         public string MaxValueMessage(string objectName, object maximumValue)
         {
             string message = $"{objectName} alanı en fazla {maximumValue} değerinde olabilir";
