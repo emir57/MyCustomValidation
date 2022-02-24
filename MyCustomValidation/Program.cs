@@ -16,6 +16,7 @@ namespace MyCustomValidation
             GetProp(p => p.CategoryId).MinValue(3).ErrorMessage();
             GetProp(p => p.ProductName).StartsWith("F").ErrorMessage();
             GetProp(p => p.UnitPrice).MaxValue(55).ErrorMessage("maksimum değer 55 olabilir");
+            GetProp(p => p.ProductName).EndsWith("ne").ErrorMessage();
         }
     }
     class Program
@@ -27,14 +28,14 @@ namespace MyCustomValidation
             {
                 Product product1 = new Product
                 {
-                    ProductName = "FPhone",
+                    ProductName = "FPhonee",
                     CategoryId = 4,
                     Stock = 2,
                     UnitPrice = 44
                 };
                 Product product2 = new Product
                 {
-                    ProductName = "Phone",
+                    ProductName = "Phonee",
                     CategoryId = 3,
                     Stock = 2,
                     UnitPrice = 44
